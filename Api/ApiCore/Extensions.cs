@@ -38,5 +38,9 @@ namespace ApiCore
         /// <returns></returns>
         public static string TrimUrl(this string Url) =>
             Url.Trim().Trim('&').Trim('?');
+
+
+        public static void ForEach<T>(this IEnumerable<T> list, Action<T> Do) =>
+            list.ToList().ForEach((x) => Do(x));
     }
 }

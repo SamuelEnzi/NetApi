@@ -1,3 +1,5 @@
 Api/.vs/*
+Api/ApiCoreTests/bin/*
+Api/ApiCoreTests/obj/*
 Api/ApiCore/bin/*
 Api/ApiCore/obj/*
