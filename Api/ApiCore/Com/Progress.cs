@@ -15,13 +15,13 @@ namespace ApiCore.Com
 
         public static List<HttpClient> Connections = new List<HttpClient>();
 
-        public static void Register(HttpClient client, Request sender)
+        internal static void Register(HttpClient client, Request sender)
         {
             Connections.Add(client);
             OnConnectionOpen?.Invoke(client, sender);
         }
 
-        public static void Unregiser(HttpClient client, Request sender)
+        internal static void Unregiser(HttpClient client, Request sender)
         {
             Connections.Remove(client);
             OnConnectionClosed?.Invoke(client, sender);

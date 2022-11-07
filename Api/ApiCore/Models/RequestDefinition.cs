@@ -19,8 +19,7 @@ namespace ApiCore.Models
             foreach (var prop in this.GetType().GetProperties())
                 prop.GetCustomAttributes(true)
                     .Where((x) => x.GetType() == typeof(PropertyTypeAttribute))
-                    .ToList()
-                    .ForEach((x) => Insert(x, request, prop));
+                    .Select((x) => Insert(x, request, prop));
             return request;
         }
 
