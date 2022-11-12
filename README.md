@@ -41,7 +41,7 @@ namespace ApiCoreTests.Request
 ```
 Each request class must be `derived` from the `RequestDefinition` class in order to implement the required basic functions. in addition, you can see that i have defined 2 `properties`. `username` and `secret`. these are both defined using the `PropertyTypeAttribute` as `Get` parameters. this way the library knows how to pass each property. So `Get` properties are passed in the url, `post` properties are passed as form body and `header` properties are embedded in the request header.
 
-One can define the request method by adding defining the RequestMethodAttribute.
+One can define the request method by adding defining the `RequestMethodAttribute`.
 
 ##### Model
 however, the model of the response can become more complex. this contains all the information of the response and can be used to control query behavior.
