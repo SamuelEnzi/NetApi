@@ -3,6 +3,7 @@ using ApiCore.Models;
 
 namespace ApiCoreTests.Request
 {
+    [RequestMethod(ApiCore.Attributes.HttpMethod.Post)]
     internal class UserRequest : RequestDefinition
     {
         [PropertyType(PropertyType.Get)]
