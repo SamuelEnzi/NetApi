@@ -9,7 +9,7 @@ namespace ApiCore.Com
     public class Request
     {
         public readonly HttpClient client = new HttpClient();
-
+        public HttpMethod Method = HttpMethod.Get;
         private string getRequestString = "";
         private List<KeyValuePair<string, string>> postRequestContent = new List<KeyValuePair<string, string>>();
 
@@ -72,7 +72,11 @@ namespace ApiCore.Com
                 Com.Progress.Register(this.client, this);
                 var requestPath = $"{url.TrimUrl()}?{getRequestString.TrimUrl()}";
                 var body = new FormUrlEncodedContent(postRequestContent);
-                return await client.PostAsync(requestPath, body);
+                HttpRequestMessage httpRequestMessage = new HttpRequestMessage();
+                httpRequestMessage.Method = Method;
+                httpRequestMessage.Content = body;
+                httpRequestMessage.RequestUri = new Uri(requestPath);
+                return await client.SendAsync(httpRequestMessage);
             }
             finally
             {

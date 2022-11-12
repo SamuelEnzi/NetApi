@@ -11,5 +11,9 @@ namespace ApiCoreTests.Request
 
         [PropertyType(PropertyType.Get)]
         public string? secret { get; set; }
+
+
+        [PropertyType(PropertyType.Post)]
+        public string? text { get; set; } = "some post info just to test";
     }
 }

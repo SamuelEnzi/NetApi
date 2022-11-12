@@ -1,15 +1,21 @@
 ﻿using ApiCoreTests.Model;
+using ApiCoreTests.Request;
 
 //get all used information
-var server = "http://localhost/endpoint.php";
+var server = "http://localhost/reflect.php";
 var username = "secure";
 var password = "password";
 
-//call login method
-var user = await User.Login(server, username!, password!);
+UserRequest request = new UserRequest();
+request.secret = password;
+request.username = username;
 
-if (user == null)
-    throw new Exception("login failed");
+var response = await request.Extract().Submit(server);
+var res = await response.Content.ReadAsStringAsync();
 
-Console.WriteLine($"login success!\n[{user.id}] {user.email}");
-Console.ReadLine();
+Console.WriteLine(res);
+//if (user == null)
+//    throw new Exception("login failed");
+//
+//Console.WriteLine($"login success!\n[{user.id}] {user.email}");
+//Console.ReadLine();
