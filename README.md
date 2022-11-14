@@ -5,6 +5,7 @@ With this library you can create api calls in a simple and structured way. With 
 ## Fetures
 - get parameter
 - post parameter
+- supports all http methods (standarts)
 - custom header values
 - strict class structure
 - subdivision between request structure and response structure
