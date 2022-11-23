@@ -32,7 +32,7 @@ namespace ApiCoreTests.Request
 {
     internal class UserRequest : RequestDefinition
     {
-        [PropertyType(PropertyType.Get)]
+        [PropertyType(PropertyType.Get, name:"CustomName")]
         public string? username { get; set; }
 
         [PropertyType(PropertyType.Get)]
