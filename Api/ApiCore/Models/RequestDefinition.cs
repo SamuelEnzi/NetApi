@@ -36,16 +36,18 @@ namespace ApiCore.Models
         /// <param name="prop"></param>
         private void Insert(object x, Request request, PropertyInfo prop)
         {
+            var name = ((PropertyTypeAttribute)x).Name != null ? ((PropertyTypeAttribute)x).Name : prop.Name;
+
             switch (((PropertyTypeAttribute)x).Type)
             {
                 case PropertyType.Header:
-                    request.AppendHeader((prop.Name, prop.GetValue(this, null)?.ToString()));
+                    request.AppendHeader((name!, prop.GetValue(this, null)?.ToString()));
                     break;
                 case PropertyType.Post:
-                    request.AppendPost((prop.Name, prop.GetValue(this, null)?.ToString()));
+                    request.AppendPost((name!, prop.GetValue(this, null)?.ToString()));
                     break;
                 case PropertyType.Get:
-                    request.AppendGet((prop.Name, prop.GetValue(this, null)?.ToString()));
+                    request.AppendGet((name!, prop.GetValue(this, null)?.ToString()));
                     break;
                 default:
                     break;

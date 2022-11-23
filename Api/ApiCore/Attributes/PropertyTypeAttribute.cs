@@ -7,9 +7,16 @@
     public class PropertyTypeAttribute : Attribute
     {
         public PropertyType Type;
+        public string? Name { get; set; } = null;
         public PropertyTypeAttribute(PropertyType type)
         {
             this.Type = type;
+        }
+
+        public PropertyTypeAttribute(PropertyType type, string name)
+        {
+            this.Type = type;
+            this.Name = name;
         }
     }
 

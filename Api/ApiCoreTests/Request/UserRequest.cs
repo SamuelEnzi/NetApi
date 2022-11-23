@@ -6,7 +6,7 @@ namespace ApiCoreTests.Request
     [RequestMethod(ApiCore.Attributes.HttpMethod.Post)]
     internal class UserRequest : RequestDefinition
     {
-        [PropertyType(PropertyType.Get)]
+        [PropertyType(PropertyType.Get, name: "User-name")]
         public string? username { get; set; }
 
 
